@@ -1,0 +1,33 @@
+<h1>Task List</h1>
+
+<% @tasks.each do |task| %>
+  <% if task.completed %>
+    <div>
+      <input type="checkbox" id="myCheck" name="#{task.name}" checked onclick="myFunction()">
+      <label for="checkbox"><%= link_to "#{task.name}", task_path(task) %></label>
+    </div>
+    <% else  %>
+    <div>
+      <input type="checkbox" id="myCheck" name="#{task.name}"  >
+      <label for="scales"><%= link_to "#{task.name}", task_path(task) %></label>
+    </div>
+  <% end %> 
+<% end %> 
+
+
+<%= link_to "Add a new task", new_path %>
+
+
+<script>
+function myFunction() {
+    var checkBox = document.getElementById("myCheck");
+    if (checkBox.checked == true){
+        window.alert("All done.")
+    } else {
+        window.alert("Done with this task? Navigate to the edit seciton to check it off.")
+    } 
+}
+</script>
+
+if the user checks the box, navigate and update the 
+  
